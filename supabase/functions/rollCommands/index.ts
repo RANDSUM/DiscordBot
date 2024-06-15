@@ -17,6 +17,11 @@ serve({
 })
 
 async function rollCommands(request: Request) {
+  console.log("LOUD AND CLEAR")
+  console.log("LOUD AND CLEAR")
+  console.log("LOUD AND CLEAR")
+  console.log("LOUD AND CLEAR")
+  console.log("LOUD AND CLEAR")
   const { error } = await validateRequest(request, {
     POST: {
       headers: ["X-Signature-Ed25519", "X-Signature-Timestamp"],
@@ -25,6 +30,13 @@ async function rollCommands(request: Request) {
   if (error) {
     return json({ error: error.message }, { status: error.status })
   }
+
+  console.log("THIS FAR")
+  console.log("THIS FAR")
+  console.log("THIS FAR")
+  console.log("THIS FAR")
+  console.log("THIS FAR")
+  console.log("THIS FAR")
   const { valid, body } = await verifySignature(request)
   if (!valid) {
     return json(
@@ -35,6 +47,7 @@ async function rollCommands(request: Request) {
     )
   }
 
+  console.log("NO FARTHER")
   const rawBody: APIInteraction = JSON.parse(body)
   if (rawBody.type === InteractionType.Ping) {
     return json({
