@@ -1,4 +1,4 @@
 export enum SlashCommands {
   Roll = "roll",
-  RollBlades = "rollBlades",
+  RollBlades = "roll-blades",
 }
