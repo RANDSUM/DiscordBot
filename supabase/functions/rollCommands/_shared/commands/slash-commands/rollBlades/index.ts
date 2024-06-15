@@ -9,11 +9,11 @@ import { generateRollResult } from "./generateRollResult.ts"
 import {
   APIApplicationCommandInteraction,
 } from "https://deno.land/x/discord_api_types@0.37.71/v10.ts"
-import deferredResponse from "../../../deferredResponse.ts"
 
 const buildEmbed = (
   interaction: APIApplicationCommandInteraction,
 ) => {
+  console.log("Test1")
   const diceArg =
     (interaction.data as unknown as { options: [{ value: number }] }).options
       ?.[0]?.value
@@ -26,6 +26,7 @@ const buildEmbed = (
   )
   const [successTitle, successValue] = getSuccessString(bladesSuccess)
   const thumbnail = getThumbnail(result.total, bladesSuccess)
+  console.log("Test2")
 
   return new EmbedBuilder()
     .setColor(getColor(bladesSuccess))
@@ -44,16 +45,16 @@ const buildEmbed = (
     ).toJSON()
 }
 
-export function handleRoll(
+export function handleRollBlades(
   interaction: APIApplicationCommandInteraction,
 ) {
-  return deferredResponse(() => {
-    const embed = buildEmbed(interaction)
+  const embed = buildEmbed(interaction)
 
-    return {
-      body: { embeds: [embed] },
-      interaction_token: interaction.token,
-      application_id: interaction.application_id,
-    }
-  })
+  console.log("Test3")
+  console.log(embed)
+  return {
+    body: { embeds: [embed] },
+    interaction_token: interaction.token,
+    application_id: interaction.application_id,
+  }
 }
