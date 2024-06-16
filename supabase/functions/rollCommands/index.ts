@@ -49,7 +49,15 @@ async function rollCommands(request: Request) {
     switch (rawBody.data.name) {
       case SlashCommands.Roll:
       case SlashCommands.RollBlades:
-        return deferredResponse(() => handleRollBlades(rawBody))
+        return json({
+          // Type 4 responds with the below message retaining the user's
+          // input at the top.
+          type: 4,
+          data: {
+            content: `Hello, world!`,
+          },
+        })
+        // return deferredResponse(() => handleRollBlades(rawBody))
     }
   }
 
