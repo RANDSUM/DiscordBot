@@ -7,7 +7,7 @@ export default (
   callback: () => Promise<DeferredResponseArgs> | DeferredResponseArgs,
   privateMessage: boolean = false,
 ) => {
-  Promise.resolve(callback()).then((response) => {
+  await Promise.resolve(callback()).then((response) => {
     console.log("Test4")
     adminClient.functions.invoke("update-deferred-discord-message", {
       body: { ...response, privateMessage: privateMessage },
