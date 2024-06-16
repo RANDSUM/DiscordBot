@@ -2,7 +2,8 @@
   "tasks": {
     "dev:roll": "supabase functions serve roll --no-verify-jwt --env-file .env",
     "gen:db:types": "npx --yes supabase gen types typescript --project-id muaohwswudsfjzrjollg --schema public > supabase/functions/_shared/supabase/database.types.ts",
-    "deploy-bot": "supabase functions deploy rollCommands --project-ref muaohwswudsfjzrjollg --no-verify-jwt",
+    "deploy-roll-commands": "supabase functions deploy rollCommands --project-ref muaohwswudsfjzrjollg --no-verify-jwt",
+    "deploy-update-deferred": "supabase functions deploy update-deferred-discord-message --project-ref muaohwswudsfjzrjollg --no-verify-jwt",
     "deploy-bot-commands": "deno run --allow-read --allow-net --allow-env supabase/functions/_shared/deploy-commands.ts"
   },
   "fmt": {

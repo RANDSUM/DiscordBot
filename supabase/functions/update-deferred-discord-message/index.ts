@@ -1,11 +1,11 @@
 import { serve } from "https://deno.land/x/sift@0.6.0/mod.ts"
 
 import { Routes } from "npm:discord-api-types/v10"
-import discordRest from "../roll-commands/_shared/discordRest.ts"
+import discordRest from "../rollCommands/_shared/discordRest.ts"
 import corsResponse, {
   corsHeaders,
-} from "../roll-commands/_shared/corsResponse.ts"
-import { DeferredResponseArgs } from "../roll-commands/_shared/types.ts"
+} from "../rollCommands/_shared/corsResponse.ts"
+import { DeferredResponseArgs } from "../rollCommands/_shared/types.ts"
 
 serve({
   "/update-deferred-discord-message": updateDeferredDiscordMessage,

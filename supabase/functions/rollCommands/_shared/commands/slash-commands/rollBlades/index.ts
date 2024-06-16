@@ -13,7 +13,6 @@ import {
 const buildEmbed = (
   interaction: APIApplicationCommandInteraction,
 ) => {
-  console.log("Test1")
   const diceArg =
     (interaction.data as unknown as { options: [{ value: number }] }).options
       ?.[0]?.value
@@ -26,7 +25,6 @@ const buildEmbed = (
   )
   const [successTitle, successValue] = getSuccessString(bladesSuccess)
   const thumbnail = getThumbnail(result.total, bladesSuccess)
-  console.log("Test2")
 
   return new EmbedBuilder()
     .setColor(getColor(bladesSuccess))
@@ -50,8 +48,6 @@ export function handleRollBlades(
 ) {
   const embed = buildEmbed(interaction)
 
-  console.log("Test3")
-  console.log(embed)
   return {
     body: { embeds: [embed] },
     interaction_token: interaction.token,
