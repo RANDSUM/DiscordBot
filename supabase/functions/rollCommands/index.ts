@@ -45,7 +45,6 @@ async function rollCommands(request: Request) {
   }
 
   if (rawBody.type === InteractionType.ApplicationCommand) {
-    console.log(rawBody)
     switch (rawBody.data.name) {
       case SlashCommands.Roll:
       case SlashCommands.RollBlades:

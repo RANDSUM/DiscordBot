@@ -24,8 +24,6 @@ async function updateDeferredDiscordMessage(request: Request) {
     Routes.webhook(application_id, interaction_token)
   }/messages/@original` as `/${string}`
 
-  console.log("ROUTE: ", route)
-
   await discordRest.patch(
     route,
     { body: { ...body, flags: privateMessage ? 1 << 6 : undefined } },
