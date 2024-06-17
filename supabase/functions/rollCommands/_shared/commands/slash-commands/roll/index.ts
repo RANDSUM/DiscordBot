@@ -34,15 +34,13 @@ const buildEmbed = (
   const result = roll(notationArg)
   const isStandard = result.type === "standard"
 
-  if (Object.keys(result.rawRolls).length === 1) {
-    const total = isStandard ? String(result.total) : String(result.result)
-    const description = isStandard ? String(result.result) : ""
-    return new EmbedBuilder()
-      .setTitle(total)
-      .setDescription(description)
-      .setFooter(embedFooterDetails)
-      .toJSON()
-  }
+  const total = `*${isStandard ? result.total : result.result}*`
+
+  return new EmbedBuilder()
+    .setTitle("You Rolled...")
+    .setDescription(total)
+    .setFooter(embedFooterDetails)
+    .toJSON()
 }
 
 export function handleRoll(
