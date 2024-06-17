@@ -12,9 +12,9 @@ const buildEmbed = (
     (interaction.data as unknown as { options: [{ value: string }] }).options
       ?.[0]?.value
 
-  const isValid = validateDiceNotation(notationArg)
+  const { valid } = validateDiceNotation(notationArg)
 
-  if (!isValid) {
+  if (!valid) {
     return new EmbedBuilder()
       .setTitle("Error")
       .setDescription("Invalid dice notation.")
