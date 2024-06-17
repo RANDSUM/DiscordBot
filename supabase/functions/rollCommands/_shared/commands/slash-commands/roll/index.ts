@@ -24,7 +24,7 @@ const buildEmbed = (
 
   const result = roll(notationArg)
   return new EmbedBuilder()
-    .setTitle("Success")
+    .setTitle(result.total ? String(result.total) : String(result.result))
     .setDescription(`You rolled ${result.total}`)
     .setFooter(embedFooterDetails)
     .toJSON()

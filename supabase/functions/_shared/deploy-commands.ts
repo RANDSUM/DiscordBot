@@ -6,7 +6,7 @@ const env = await load()
 
 const roll = new SlashCommandBuilder()
   .setName(SlashCommands.Roll)
-  .setDescription("Roll some dice. Test your luck.")
+  .setDescription("Test your luck with a roll of the dice")
   .addStringOption((option) =>
     option
       .setName("dice-notation")
@@ -14,9 +14,9 @@ const roll = new SlashCommandBuilder()
       .setRequired(true)
   )
 
-const rollBlades = new SlashCommandBuilder()
+const blades = new SlashCommandBuilder()
   .setName(SlashCommands.Blades)
-  .setDescription("Roll some dice. Test your luck.")
+  .setDescription("Crew up. Get in. Get out. Get Paid.")
   .addIntegerOption((option) =>
     option
       .setName("dice-pool")
@@ -26,7 +26,19 @@ const rollBlades = new SlashCommandBuilder()
       .setRequired(true)
   )
 
-const commands = [roll, rollBlades].map((command) => command.toJSON())
+const root = new SlashCommandBuilder()
+  .setName(SlashCommands.Root)
+  .setDescription("The woodland isn't gonna clear itself, vagbond.")
+  .addIntegerOption((option) =>
+    option
+      .setName("plus")
+      .setDescription("The number to add to the dice roll")
+      .setMinValue(0)
+      .setMaxValue(10)
+      .setRequired(true)
+  )
+
+const commands = [roll, blades, root].map((command) => command.toJSON())
 
 const DISCORD_BOT_TOKEN = env["DISCORD_BOT_TOKEN"] ||
   Deno.env.get("DISCORD_BOT_TOKEN")
