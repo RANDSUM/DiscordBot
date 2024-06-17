@@ -9,7 +9,7 @@ import {
   APIInteraction,
   InteractionType,
 } from "https://deno.land/x/discord_api_types@0.37.71/v10.ts"
-import { handleRollBlades } from "./_shared/commands/slash-commands/rollBlades/index.ts"
+import { handleRollBlades } from "./_shared/commands/slash-commands/blades/index.ts"
 import { SlashCommands } from "../_shared/types.ts"
 import deferredResponse from "./_shared/deferredResponse.ts"
 
@@ -47,7 +47,7 @@ async function rollCommands(request: Request) {
   if (rawBody.type === InteractionType.ApplicationCommand) {
     switch (rawBody.data.name) {
       case SlashCommands.Roll:
-      case SlashCommands.RollBlades:
+      case SlashCommands.Blades:
         return deferredResponse(() => handleRollBlades(rawBody))
     }
   }
