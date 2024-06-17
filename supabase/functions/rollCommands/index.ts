@@ -12,6 +12,7 @@ import {
 import { handleRollBlades } from "./_shared/commands/slash-commands/blades/index.ts"
 import { SlashCommands } from "../_shared/types.ts"
 import deferredResponse from "./_shared/deferredResponse.ts"
+import { handleRoll } from "./_shared/commands/slash-commands/roll/index.ts"
 
 serve({
   "/rollCommands": rollCommands,
@@ -47,6 +48,7 @@ async function rollCommands(request: Request) {
   if (rawBody.type === InteractionType.ApplicationCommand) {
     switch (rawBody.data.name) {
       case SlashCommands.Roll:
+        return deferredResponse(() => handleRoll(rawBody))
       case SlashCommands.Blades:
         return deferredResponse(() => handleRollBlades(rawBody))
     }
