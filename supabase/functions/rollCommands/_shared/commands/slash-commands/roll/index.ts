@@ -32,11 +32,17 @@ const buildEmbed = (
   }
 
   const result = roll(notationArg)
-  return new EmbedBuilder()
-    .setTitle(result.total ? String(result.total) : String(result.result))
-    .setDescription(`You rolled ${result.total}`)
-    .setFooter(embedFooterDetails)
-    .toJSON()
+  const isStandard = result.type === "standard"
+
+  if (Object.keys(result.rawRolls).length === 1) {
+    const total = isStandard ? String(result.total) : String(result.result)
+    const description = isStandard ? String(result.result) : ""
+    return new EmbedBuilder()
+      .setTitle(total)
+      .setDescription(description)
+      .setFooter(embedFooterDetails)
+      .toJSON()
+  }
 }
 
 export function handleRoll(
