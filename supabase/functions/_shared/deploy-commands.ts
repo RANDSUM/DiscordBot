@@ -7,7 +7,7 @@ const env = await load()
 const roll = new SlashCommandBuilder()
   .setName(SlashCommands.Roll)
   .setDescription("Roll some dice. Test your luck.")
-  .addIntegerOption((option) =>
+  .addStringOption((option) =>
     option
       .setName("dice_notation")
       .setDescription("A roll using dice notation - e.g. 2d6+3")
