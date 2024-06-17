@@ -18,7 +18,7 @@ const buildEmbed = (
   if (!valid) {
     return new EmbedBuilder()
       .setTitle("Error")
-      .setDescription(`*${notationArg}* is not valid dice notation.`)
+      .setDescription(`"**${notationArg}**" is not valid dice notation.`)
       .addFields({
         name: "Learn More",
         value:
