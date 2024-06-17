@@ -1,9 +1,4 @@
 import { EmbedBuilder } from "npm:@discordjs/builders"
-import { getColor } from "./getColor.ts"
-import { getExplanation } from "./getExplanation.ts"
-import { parseRolls } from "./parseRolls.ts"
-import { getThumbnail } from "./getThumbail.ts"
-import { getSuccessString } from "./getSuccessString.ts"
 import {
   APIApplicationCommandInteraction,
 } from "https://deno.land/x/discord_api_types@0.37.71/v10.ts"
