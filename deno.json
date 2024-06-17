@@ -2,10 +2,10 @@
   "tasks": {
     "dev:roll": "supabase functions serve roll --no-verify-jwt --env-file .env",
     "gen:db:types": "npx --yes supabase gen types typescript --project-id muaohwswudsfjzrjollg --schema public > supabase/functions/_shared/supabase/database.types.ts",
-    "deploy-roll-commands": "supabase functions deploy rollCommands --project-ref muaohwswudsfjzrjollg --no-verify-jwt",
-    "deploy-update-deferred": "supabase functions deploy update-deferred-discord-message --project-ref muaohwswudsfjzrjollg --no-verify-jwt",
-    "deploy:all": "deno task deploy-roll-commands && deno task deploy-update-deferred",
-    "deploy-bot-commands": "deno run --allow-read --allow-net --allow-env supabase/functions/_shared/deploy-commands.ts"
+    "deploy:roll": "supabase functions deploy rollCommands --project-ref muaohwswudsfjzrjollg --no-verify-jwt",
+    "deploy:update": "supabase functions deploy update-deferred-discord-message --project-ref muaohwswudsfjzrjollg --no-verify-jwt",
+    "deploy:commands": "deno run --allow-read --allow-net --allow-env supabase/functions/_shared/deploy-commands.ts",
+    "deploy:all": "deno task deploy:roll && deno task deploy:update && deno task deploy:commands"
   },
   "fmt": {
     "semiColons": false
