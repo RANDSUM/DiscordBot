@@ -20,7 +20,7 @@ const buildEmbed = (
       .setTitle("Error")
       .setDescription(`"**${notationArg}**" is not valid dice notation.`)
       .addFields(
-        description.map((d) => ({ name: "Error", value: d, inline: true })),
+        description.map((d) => ({ name: "", value: d, inline: true })),
       )
       .addFields({
         name: "Learn More",
