@@ -4,6 +4,7 @@ import {
 } from "https://deno.land/x/discord_api_types@0.37.71/v10.ts"
 import { roll, validateDiceNotation } from "npm:randsum"
 import { embedFooterDetails } from "../../../constants.ts"
+import deferredResponse from "../../../deferredResponse.ts"
 
 const buildEmbed = (
   interaction: APIApplicationCommandInteraction,
@@ -17,7 +18,12 @@ const buildEmbed = (
   if (!valid) {
     return new EmbedBuilder()
       .setTitle("Error")
-      .setDescription("Invalid dice notation.")
+      .setDescription(`*${notationArg}* is not valid dice notation.`)
+      .addFields({
+        name: "Learn More",
+        value:
+          "See the [Dice Notation Guide](https://github.com/RANDSUM/randsum-ts/blob/main/RANDSUM_DICE_NOTATION.md) for more information.",
+      })
       .setFooter(embedFooterDetails)
       .toJSON()
   }
@@ -35,9 +41,11 @@ export function handleRoll(
 ) {
   const embed = buildEmbed(interaction)
 
-  return {
-    body: { embeds: [embed] },
-    interaction_token: interaction.token,
-    application_id: interaction.application_id,
-  }
+  return deferredResponse(() => {
+    return {
+      body: { embeds: [embed] },
+      interaction_token: interaction.token,
+      application_id: interaction.application_id,
+    }
+  })
 }

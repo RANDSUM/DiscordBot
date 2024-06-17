@@ -10,6 +10,7 @@ import {
   APIApplicationCommandInteraction,
 } from "https://deno.land/x/discord_api_types@0.37.71/v10.ts"
 import { embedFooterDetails } from "../../../constants.ts"
+import deferredResponse from "../../../deferredResponse.ts"
 
 const buildEmbed = (
   interaction: APIApplicationCommandInteraction,
@@ -50,9 +51,11 @@ export function handleRollBlades(
 ) {
   const embed = buildEmbed(interaction)
 
-  return {
-    body: { embeds: [embed] },
-    interaction_token: interaction.token,
-    application_id: interaction.application_id,
-  }
+  return deferredResponse(() => {
+    return {
+      body: { embeds: [embed] },
+      interaction_token: interaction.token,
+      application_id: interaction.application_id,
+    }
+  })
 }

@@ -48,7 +48,7 @@ async function rollCommands(request: Request) {
   if (rawBody.type === InteractionType.ApplicationCommand) {
     switch (rawBody.data.name) {
       case SlashCommands.Roll:
-        return deferredResponse(() => handleRoll(rawBody))
+        return handleRoll(rawBody)
       case SlashCommands.Blades:
         return deferredResponse(() => handleRollBlades(rawBody))
     }
