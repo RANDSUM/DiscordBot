@@ -13,12 +13,15 @@ const buildEmbed = (
     (interaction.data as unknown as { options: [{ value: string }] }).options
       ?.[0]?.value
 
-  const { valid } = validateDiceNotation(notationArg)
+  const { valid, description } = validateDiceNotation(notationArg)
 
   if (!valid) {
     return new EmbedBuilder()
       .setTitle("Error")
       .setDescription(`"**${notationArg}**" is not valid dice notation.`)
+      .addFields(
+        description.map((d) => ({ name: "", value: d, inline: true })),
+      )
       .addFields({
         name: "Learn More",
         value:
