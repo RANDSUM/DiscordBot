@@ -50,7 +50,7 @@ async function rollCommands(request: Request) {
       case SlashCommands.Roll:
         return handleRoll(rawBody)
       case SlashCommands.Blades:
-        handleRollBlades(rawBody)
+        return handleRollBlades(rawBody)
     }
   }
 
