@@ -3,6 +3,7 @@ import {
   APIApplicationCommandInteraction,
 } from "https://deno.land/x/discord_api_types@0.37.71/v10.ts"
 import { roll } from "npm:randsum"
+import { embedFooterDetails } from "../../../constants.ts"
 
 const buildEmbed = (
   interaction: APIApplicationCommandInteraction,
@@ -16,11 +17,13 @@ const buildEmbed = (
     return new EmbedBuilder()
       .setTitle("Success")
       .setDescription(`You rolled ${result.total}`)
+      .setFooter(embedFooterDetails)
       .toJSON()
   } catch {
     return new EmbedBuilder()
       .setTitle("Error")
       .setDescription("There was an error with your roll.")
+      .setFooter(embedFooterDetails)
       .toJSON()
   }
 }

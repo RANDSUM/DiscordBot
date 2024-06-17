@@ -9,6 +9,7 @@ import { generateRollResult } from "./generateRollResult.ts"
 import {
   APIApplicationCommandInteraction,
 } from "https://deno.land/x/discord_api_types@0.37.71/v10.ts"
+import { embedFooterDetails } from "../../../constants.ts"
 
 const buildEmbed = (
   interaction: APIApplicationCommandInteraction,
@@ -40,7 +41,8 @@ const buildEmbed = (
         inline: true,
       },
       { name: "Total", value: `** ${result.total} **`, inline: true },
-    ).toJSON()
+    ).setFooter(embedFooterDetails)
+    .toJSON()
 }
 
 export function handleRollBlades(
