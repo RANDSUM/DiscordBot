@@ -5,7 +5,8 @@ export const parseRolls = (
   result: RollResult,
   bladesSuccess: BladesRollType,
 ): string => {
-  return result.result.flat()
+  const rolls = Object.values(result.rawRolls)[0] as number[]
+  return rolls.flat()
     .map((roll, index, array) => {
       const isCritical = bladesSuccess === "critical"
       const firstInstaceOfRoll = array.indexOf(roll) === index

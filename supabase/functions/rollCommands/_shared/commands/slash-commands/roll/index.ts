@@ -5,7 +5,6 @@ import {
 import { roll, validateDiceNotation } from "npm:randsum"
 import { embedFooterDetails } from "../../../constants.ts"
 import deferredResponse from "../../../deferredResponse.ts"
-import { stringEmail } from "../../../../../../../../../../Library/Caches/deno/npm/registry.npmjs.org/@sapphire/shapeshift/3.9.6/dist/esm/index.d.mts"
 
 const buildEmbed = (
   interaction: APIApplicationCommandInteraction,
@@ -38,6 +37,14 @@ const buildEmbed = (
   const total = `*${isStandard ? result.total : result.result}*`
   const key = Object.keys(result.dicePools)[0]
   const dicePoolDescriptions = result.dicePools[key].description
+  const fields = [
+    { name: "Input", value: notationArg, inline: true },
+    isStandard && {
+      name: "Rolls",
+      value: `[${result.result.join(", ")}]`,
+      inline: true,
+    },
+  ].filter((x) => x)
   const embed = new EmbedBuilder()
     .setTitle(total)
     .setDescription(
