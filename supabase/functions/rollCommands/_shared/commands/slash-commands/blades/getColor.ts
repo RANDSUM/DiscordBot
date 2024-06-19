@@ -1,5 +1,5 @@
 import Colors from "../../../../../_shared/Colors.ts"
-import { BladesRollType } from "./constants.ts"
+import { BladesRollType } from "./types.ts"
 
 export const getColor = (type: BladesRollType): number => {
   switch (type) {
