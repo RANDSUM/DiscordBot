@@ -13,6 +13,7 @@ import { handleRollBlades } from "./_shared/commands/slash-commands/blades/index
 import { SlashCommands } from "../_shared/types.ts"
 import { handleRoll } from "./_shared/commands/slash-commands/roll/index.ts"
 import { handleInfo } from "./_shared/commands/slash-commands/info/index.ts"
+import { handleRollRoot } from "./_shared/commands/slash-commands/root/index.ts"
 
 serve({
   "/rollCommands": rollCommands,
@@ -49,6 +50,8 @@ async function rollCommands(request: Request) {
     switch (rawBody.data.name) {
       case SlashCommands.Roll:
         return handleRoll(rawBody)
+      case SlashCommands.Root:
+        return handleRollRoot(rawBody)
       case SlashCommands.Blades:
         return handleRollBlades(rawBody)
       case SlashCommands.Info:

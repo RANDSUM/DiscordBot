@@ -49,7 +49,7 @@ const buildEmbed = (
     .toJSON()
 }
 
-export function handleRollBlades(
+export function handleRollRoot(
   interaction: APIApplicationCommandInteraction,
 ) {
   return deferredResponse(() => {

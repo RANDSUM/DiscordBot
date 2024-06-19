@@ -1,5 +1,3 @@
-import { RollResult } from "npm:randsum"
-
 export const parseRolls = (
   rolls: number[],
 ): string => {
