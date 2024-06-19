@@ -4,6 +4,10 @@ import { SlashCommands } from "./types.ts"
 
 const env = await load()
 
+const info = new SlashCommandBuilder()
+  .setName(SlashCommands.Info)
+  .setDescription("Learn more about RANDSUM")
+
 const roll = new SlashCommandBuilder()
   .setName(SlashCommands.Roll)
   .setDescription("Test your luck with a roll of the dice")
@@ -38,7 +42,7 @@ const root = new SlashCommandBuilder()
       .setRequired(true)
   )
 
-const commands = [roll, blades, root].map((command) => command.toJSON())
+const commands = [info, roll, blades, root].map((command) => command.toJSON())
 
 const DISCORD_BOT_TOKEN = env["DISCORD_BOT_TOKEN"] ||
   Deno.env.get("DISCORD_BOT_TOKEN")
