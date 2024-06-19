@@ -16,9 +16,8 @@ const buildEmbed = (
   const { valid, description } = validateDiceNotation(notationArg)
 
   if (!valid) {
-    const errorTitle = String(roll({ sides: ["Error"] }).result[0])
     return new EmbedBuilder()
-      .setTitle(errorTitle)
+      .setTitle("Error")
       .setDescription(`"**${notationArg}**" is not valid dice notation.`)
       .addFields(
         description.map((d) => ({ name: "", value: d, inline: true })),
