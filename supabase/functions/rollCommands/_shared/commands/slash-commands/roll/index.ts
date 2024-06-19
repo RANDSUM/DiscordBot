@@ -1,12 +1,10 @@
 import { EmbedBuilder } from "npm:@discordjs/builders"
 import {
   APIApplicationCommandInteraction,
-  InteractionResponseType,
 } from "https://deno.land/x/discord_api_types@0.37.73/v10.ts"
 import { roll, validateDiceNotation } from "npm:randsum"
 import { embedFooterDetails } from "../../../constants.ts"
-// import deferredResponse from "../../../deferredResponse.ts"
-import { json } from "https://deno.land/x/sift@0.6.0/mod.ts"
+import deferredResponse from "../../../deferredResponse.ts"
 
 const buildEmbed = (
   interaction: APIApplicationCommandInteraction,
@@ -57,18 +55,11 @@ export function handleRoll(
 ) {
   const embed = buildEmbed(interaction)
 
-  return json({
-    type: InteractionResponseType.ChannelMessageWithSource,
-    data: {
-      embeds: [embed],
-    },
+  return deferredResponse(() => {
+    return {
+      body: { embeds: [embed] },
+      interaction_token: interaction.token,
+      application_id: interaction.application_id,
+    }
   })
-
-  // return deferredResponse(() => {
-  //   return {
-  //     body: { embeds: [embed] },
-  //     interaction_token: interaction.token,
-  //     application_id: interaction.application_id,
-  //   }
-  // })
 }
