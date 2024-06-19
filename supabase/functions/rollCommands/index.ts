@@ -56,5 +56,5 @@ async function rollCommands(request: Request) {
     }
   }
 
-  return json({ error: "bad request" }, { status: 400 })
+  return json({ error: "Unrecognized Command" }, { status: 400 })
 }
