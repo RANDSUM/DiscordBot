@@ -41,7 +41,7 @@ const buildEmbed = (
     .addFields(
       {
         name: "Rolls",
-        value: `[${parseRolls(rolls)}] + ${modifier}`,
+        value: `[${parseRolls(rolls)}] + **${modifier}** = __**${total}**__`,
         inline: true,
       },
     ).setFooter(embedFooterDetails)
