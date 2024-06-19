@@ -16,8 +16,9 @@ const buildEmbed = (
   const { valid, description } = validateDiceNotation(notationArg)
 
   if (!valid) {
+    const errorTitle = String(roll({ sides: ["Error"] }).result[0])
     return new EmbedBuilder()
-      .setTitle("Error")
+      .setTitle(errorTitle)
       .setDescription(`"**${notationArg}**" is not valid dice notation.`)
       .addFields(
         description.map((d) => ({ name: "", value: d, inline: true })),
@@ -38,29 +39,15 @@ const buildEmbed = (
   const key = Object.keys(result.dicePools)[0]
   const dicePoolDescriptions = result.dicePools[key].description
   const fields = [
-    { name: "Input", value: notationArg, inline: true },
-    isStandard && {
-      name: "Rolls",
-      value: `[${result.result.join(", ")}]`,
-      inline: true,
-    },
+    { name: "Notation", value: notationArg, inline: true },
   ].filter((x) => x)
-  const embed = new EmbedBuilder()
+  return new EmbedBuilder()
     .setTitle(total)
     .setDescription(
       dicePoolDescriptions.join(", "),
     )
-
-  if (isStandard) {
-    embed.setFields({
-      name: "Rolls",
-      value: `[${result.result.join(", ")}]`,
-    })
-  }
-
-  return embed.setFooter(
-    embedFooterDetails,
-  )
+    .setFields(fields)
+    .setFooter(embedFooterDetails)
     .toJSON()
 }
 
