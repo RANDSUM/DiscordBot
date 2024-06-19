@@ -35,7 +35,7 @@ const root = new SlashCommandBuilder()
   .setDescription("The woodland isn't gonna clear itself, vagbond.")
   .addIntegerOption((option) =>
     option
-      .setName("plus")
+      .setName("modifier")
       .setDescription("The number to add to the dice roll")
       .setMinValue(-4)
       .setMaxValue(4)
