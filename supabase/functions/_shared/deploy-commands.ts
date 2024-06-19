@@ -37,8 +37,8 @@ const root = new SlashCommandBuilder()
     option
       .setName("plus")
       .setDescription("The number to add to the dice roll")
-      .setMinValue(0)
-      .setMaxValue(10)
+      .setMinValue(-4)
+      .setMaxValue(4)
       .setRequired(true)
   )
 

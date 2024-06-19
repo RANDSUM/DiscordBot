@@ -20,13 +20,13 @@ const buildEmbeds = () => {
     new EmbedBuilder()
       .setTitle("/blades <dice>")
       .setDescription(
-        "Make a roll in the Forged in the Dark system. Pass in the # of d6 to roll. If you are rolling 0, pass in 0, and we'll do the math for you.",
+        "Make a roll in the Forged in the Dark system. Pass in the # of d6 to roll, and we'll show you the results. If rolling zero, pass in zero!",
       )
       .toJSON(),
     new EmbedBuilder()
-      .setTitle("/root <plus>")
+      .setTitle("/root <modifier>")
       .setDescription(
-        "Make a roll in the Root RPG system. Roll 2d6 and add the 'plus' value.",
+        "Make a roll in the Root RPG system. Roll 2d6 and add the <modifier> value.",
       )
       .toJSON(),
     new EmbedBuilder()
