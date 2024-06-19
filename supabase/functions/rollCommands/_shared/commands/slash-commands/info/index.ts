@@ -7,19 +7,20 @@ const fields = [
   {
     name: "/roll <notation>",
     value:
-      "Pass in dice notation or use some of our built-in game commands. - i.e., 2d6 + 3 - to generate a roll result.",
+      "Pass in dice notation or use some of our built-in game commands. - i.e., 2d6 + 3 - to generate a roll result.\n\n\n",
   },
   {
     name: "/blades <dice>",
     value:
-      "Make a roll in the Forged in the Dark system. Pass in the # of d6 to roll as <dice>, and we'll show you the results. If rolling zero, pass in zero!",
+      "Make a roll in the Forged in the Dark system. Pass in the # of d6 to roll as <dice>, and we'll show you the results. If rolling zero, pass in zero!\n\n\n",
   },
   {
     name: "/root <modifier>",
     value:
-      "Make a roll in the Root RPG system. Roll 2d6 and add the <modifier> value.",
+      "Make a roll in the Root RPG system. Roll 2d6 and add the <modifier> value.\n\n\n",
   },
 ]
+
 const buildEmbed = () => {
   return new EmbedBuilder()
     .setTitle("Randsum")
