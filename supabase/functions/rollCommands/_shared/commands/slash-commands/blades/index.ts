@@ -58,11 +58,11 @@ export function handleRollBlades(
   //   },
   // })
 
-  return deferredResponse(() => {
-    return {
-      body: { embeds: [embed] },
-      interaction_token: interaction.token,
-      application_id: interaction.application_id,
-    }
-  })
+  // return deferredResponse(() => {
+  //   return {
+  //     body: { embeds: [embed] },
+  //     interaction_token: interaction.token,
+  //     application_id: interaction.application_id,
+  //   }
+  // })
 }

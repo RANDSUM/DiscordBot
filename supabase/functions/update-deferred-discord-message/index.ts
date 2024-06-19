@@ -6,6 +6,7 @@ import corsResponse, {
   corsHeaders,
 } from "../rollCommands/_shared/corsResponse.ts"
 import { DeferredResponseArgs } from "../rollCommands/_shared/types.ts"
+import { Route } from "https://deno.land/x/httpcord_rest@v1.0.0/mod.ts"
 
 serve({
   "/update-deferred-discord-message": updateDeferredDiscordMessage,
@@ -22,7 +23,7 @@ async function updateDeferredDiscordMessage(request: Request) {
 
   const route = `${
     Routes.webhook(application_id, interaction_token)
-  }/messages/@original` as `/${string}`
+  }/messages/@original` as Route
 
   await discordRest.patch(
     route,
