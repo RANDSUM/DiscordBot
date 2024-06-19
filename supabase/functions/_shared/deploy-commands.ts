@@ -9,7 +9,7 @@ const roll = new SlashCommandBuilder()
   .setDescription("Test your luck with a roll of the dice")
   .addStringOption((option) =>
     option
-      .setName("dice-notation")
+      .setName("notation")
       .setDescription("A roll using dice notation - e.g. 2d6+3")
       .setRequired(true)
   )
@@ -19,7 +19,7 @@ const blades = new SlashCommandBuilder()
   .setDescription("Crew up. Get in. Get out. Get Paid.")
   .addIntegerOption((option) =>
     option
-      .setName("dice-pool")
+      .setName("dice")
       .setDescription("The number of dice to roll")
       .setMinValue(0)
       .setMaxValue(10)
