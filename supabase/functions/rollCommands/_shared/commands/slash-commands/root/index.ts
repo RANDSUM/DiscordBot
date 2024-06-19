@@ -19,7 +19,7 @@ const buildEmbed = (
     (interaction.data as unknown as { options: [{ value: number }] }).options
       ?.[0]?.value
   const modifier = Number(modifierArg)
-  const explanationTitle = getExplanation(
+  const [explanationName, explanationValue] = getExplanation(
     modifier,
     interaction.member?.nick || "User",
   )
@@ -37,14 +37,13 @@ const buildEmbed = (
     .setDescription(successValue)
     .setThumbnail(thumbnail)
     .addFields({ name: "\u200B", value: "\u200B" })
-    .addFields({ name: explanationTitle, value: "" })
+    .addFields({ name: explanationName, value: explanationValue })
     .addFields(
       {
         name: "Rolls",
         value: `[${parseRolls(rolls)}] + ${modifier}`,
         inline: true,
       },
-      { name: "Total", value: `** ${total} **`, inline: true },
     ).setFooter(embedFooterDetails)
     .toJSON()
 }
