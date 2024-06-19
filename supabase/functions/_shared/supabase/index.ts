@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2"
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.8"
 import { Database } from "./database.types.ts"
 
 const URL = Deno.env.get("SUPABASE_URL")!
