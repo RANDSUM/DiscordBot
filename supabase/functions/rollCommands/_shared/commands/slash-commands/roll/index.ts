@@ -1,8 +1,7 @@
 import { EmbedBuilder } from "npm:@discordjs/builders"
 import {
   APIApplicationCommandInteraction,
-  InteractionResponseType,
-} from "https://deno.land/x/discord_api_types@0.37.71/v10.ts"
+} from "https://deno.land/x/discord_api_types@0.37.73/v10.ts"
 import { roll, validateDiceNotation } from "npm:randsum"
 import { embedFooterDetails } from "../../../constants.ts"
 import deferredResponse from "../../../deferredResponse.ts"
