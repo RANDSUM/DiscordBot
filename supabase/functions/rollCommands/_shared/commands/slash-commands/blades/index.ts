@@ -6,10 +6,10 @@ import { getThumbnail } from "./getThumbail.ts"
 import { getBladesRollType } from "./getBladesRollType.ts"
 import { getSuccessString } from "./getSuccessString.ts"
 import { generateRollResult } from "./generateRollResult.ts"
+import { embedFooterDetails } from "../../../constants.ts"
 import {
   APIApplicationCommandInteraction,
-} from "https://deno.land/x/discord_api_types@0.37.71/v10.ts"
-import { embedFooterDetails } from "../../../constants.ts"
+} from "https://deno.land/x/discord_api_types@0.37.73/v10.ts"
 import deferredResponse from "../../../deferredResponse.ts"
 
 const buildEmbed = (
@@ -50,6 +50,13 @@ export function handleRollBlades(
   interaction: APIApplicationCommandInteraction,
 ) {
   const embed = buildEmbed(interaction)
+
+  // return json({
+  //   type: InteractionResponseType.ChannelMessageWithSource,
+  //   data: {
+  //     embeds: [embed],
+  //   },
+  // })
 
   return deferredResponse(() => {
     return {

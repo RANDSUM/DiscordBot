@@ -1,4 +1,4 @@
-import { Colors } from "npm:discord.js"
+import Colors from "../../../../../_shared/Colors.ts"
 import { BladesRollType } from "./constants.ts"
 
 export const getColor = (type: BladesRollType): number => {

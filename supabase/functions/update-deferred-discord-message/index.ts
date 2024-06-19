@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/x/sift@0.6.0/mod.ts"
 
-import { Routes } from "npm:discord-api-types/v10"
+import { Routes } from "https://deno.land/x/discord_api_types@0.37.73/v10.ts"
 import discordRest from "../rollCommands/_shared/discordRest.ts"
 import corsResponse, {
   corsHeaders,

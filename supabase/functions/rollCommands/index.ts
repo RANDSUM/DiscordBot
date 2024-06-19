@@ -8,7 +8,7 @@ import { verifySignature } from "./_shared/utils.ts"
 import {
   APIInteraction,
   InteractionType,
-} from "https://deno.land/x/discord_api_types@0.37.71/v10.ts"
+} from "https://deno.land/x/discord_api_types@0.37.73/v10.ts"
 import { handleRollBlades } from "./_shared/commands/slash-commands/blades/index.ts"
 import { SlashCommands } from "../_shared/types.ts"
 import { handleRoll } from "./_shared/commands/slash-commands/roll/index.ts"
