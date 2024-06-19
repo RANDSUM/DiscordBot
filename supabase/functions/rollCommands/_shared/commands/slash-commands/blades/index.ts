@@ -19,20 +19,20 @@ const buildEmbed = (
     (interaction.data as unknown as { options: [{ value: number }] }).options
       ?.[0]?.value
   const quantity = diceArg === 0 ? 0 : diceArg || 1
-  const result = generateRollResult(quantity)
-  const bladesSuccess = getBladesRollType(result, quantity)
   const [explanationTitle, explanationValue] = getExplanation(
     quantity,
     interaction.member?.nick || "User",
   )
+
+  const result = generateRollResult(quantity)
+  const bladesSuccess = getBladesRollType(result, quantity)
   const [successTitle, successValue] = getSuccessString(bladesSuccess)
-  const thumbnail = getThumbnail(result.total, bladesSuccess)
 
   return new EmbedBuilder()
     .setColor(getColor(bladesSuccess))
     .setTitle(successTitle)
     .setDescription(successValue)
-    .setThumbnail(thumbnail)
+    .setThumbnail(getThumbnail(result.total, bladesSuccess))
     .addFields({ name: "\u200B", value: "\u200B" })
     .addFields({ name: explanationTitle, value: explanationValue })
     .addFields(

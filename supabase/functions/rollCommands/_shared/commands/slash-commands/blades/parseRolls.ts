@@ -8,7 +8,7 @@ export const parseRolls = (
   const rolls = Object.values(result.rawRolls)[0] as number[]
   return rolls.flat()
     .map((roll, index, array) => {
-      const isCritical = bladesSuccess === "critical"
+      const isCritical = bladesSuccess === BladesRollType.Critical
       const firstInstaceOfRoll = array.indexOf(roll) === index
       return roll === result.total && (isCritical || firstInstaceOfRoll)
         ? `**${roll}**`

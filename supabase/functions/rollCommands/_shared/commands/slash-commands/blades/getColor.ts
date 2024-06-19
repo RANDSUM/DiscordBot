@@ -3,13 +3,13 @@ import { BladesRollType } from "./constants.ts"
 
 export const getColor = (type: BladesRollType): number => {
   switch (type) {
-    case "critical":
+    case BladesRollType.Critical:
       return Colors.Gold
-    case "success":
+    case BladesRollType.Success:
       return Colors.Green
-    case "partial":
+    case BladesRollType.Partial:
       return Colors.Yellow
-    case "failure":
+    case BladesRollType.Failure:
       return Colors.Red
   }
 }

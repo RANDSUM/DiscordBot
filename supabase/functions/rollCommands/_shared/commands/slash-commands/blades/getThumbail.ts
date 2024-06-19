@@ -15,7 +15,7 @@ export const getThumbnail = (total: number, type: BladesRollType): string => {
     case 5:
       return `${root}five.png`
     case 6:
-      if (type === "critical") {
+      if (type === BladesRollType.Critical) {
         return `${root}double6.png`
       }
       return `${root}six.png`

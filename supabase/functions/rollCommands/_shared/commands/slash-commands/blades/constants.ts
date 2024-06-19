@@ -1,1 +1,6 @@
-export type BladesRollType = "critical" | "success" | "partial" | "failure"
+export enum BladesRollType {
+  "Critical" = "critical",
+  "Success" = "success",
+  "Partial" = "partial",
+  "Failure" = "failure",
+}

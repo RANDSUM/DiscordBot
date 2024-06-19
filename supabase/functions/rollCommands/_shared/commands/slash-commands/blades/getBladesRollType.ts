@@ -9,12 +9,12 @@ export const getBladesRollType = (
   if (result.total === 6) {
     const isCritical = rawRolls.flat().filter((roll) => roll === 6).length >= 2
     if (isCritical && quantity > 0) {
-      return "critical"
+      return BladesRollType.Critical
     }
-    return "success"
+    return BladesRollType.Success
   }
   if (result.total === 4 || result.total === 5) {
-    return "partial"
+    return BladesRollType.Partial
   }
-  return "failure"
+  return BladesRollType.Failure
 }
