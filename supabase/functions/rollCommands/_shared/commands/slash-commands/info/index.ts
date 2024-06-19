@@ -23,10 +23,10 @@ const fields = [
 
 const buildEmbed = () => {
   return new EmbedBuilder()
-    .setTitle("Randsum")
+    .setTitle("RANDSUM.io")
     .setDescription(
       [
-        "**RANDSUM.io** is the internet's premier randum number service. Generate your own rolls with our [Dice Notation](https://github.com/RANDSUM/randsum-ts/blob/main/RANDSUM_DICE_NOTATION.md) or use some of our built-in game commands.",
+        "**[RANDSUM.io](randsum.io)** is the internet's premier randum number service. Generate your own rolls with our [Dice Notation](https://github.com/RANDSUM/randsum-ts/blob/main/RANDSUM_DICE_NOTATION.md) or use some of our built-in game commands.",
         "You'll get the rolls you want - not always the results you need.",
         "Here are the available commands:",
       ].join("\n\n"),
