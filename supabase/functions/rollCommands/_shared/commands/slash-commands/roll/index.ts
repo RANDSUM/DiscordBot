@@ -34,7 +34,7 @@ const buildEmbed = (
   const result = roll(notationArg)
   const isStandard = result.type === "standard"
 
-  const total = `*${isStandard ? result.total : result.result}*`
+  const total = `**${isStandard ? result.total : result.result}**`
   const key = Object.keys(result.dicePools)[0]
   const dicePoolDescriptions = result.dicePools[key].description
   const fields = [
