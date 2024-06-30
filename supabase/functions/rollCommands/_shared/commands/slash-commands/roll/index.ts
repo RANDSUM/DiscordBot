@@ -38,8 +38,8 @@ const buildEmbed = (
   const key = Object.keys(result.dicePools)[0]
   const dicePoolDescriptions = result.dicePools[key].description
 
-  const rawResults = JSON.stringify(result.rawResult.flat())
-  const results = JSON.stringify(result.result.flat())
+  const rawResults = String(result.rawResult.flat())
+  const results = String(result.result.flat())
 
   const noChanges = rawResults === results
 
