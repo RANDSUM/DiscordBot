@@ -37,13 +37,26 @@ const buildEmbed = (
   const total = `**${isStandard ? result.total : result.result}**`
   const key = Object.keys(result.dicePools)[0]
   const dicePoolDescriptions = result.dicePools[key].description
+
+  const rawResults = JSON.stringify(result.rawResult.flat())
+  const results = JSON.stringify(result.result.flat())
+
+  const noChanges = rawResults === results
+
+  const rollFields =
+    noChanges ? [
+    { name: "Rolls", value: JSON.stringify(results), inline: true },
+    ] : [{ name: "Rolls (before modifiers)", value: JSON.stringify(rawResults), inline: true },
+    { name: "Rolls (after modifiers)", value: JSON.stringify(results), inline: true },
+
+  ]
   const fields = [
-    { name: "Rolls (before modifiers)", value: JSON.stringify(result.rawResult), inline: true },
-    { name: "Rolls (after modifiers)", value: JSON.stringify(result.result), inline: true },
-    { name: "Notation", value: notationArg, inline: true },
+    { name: "Value", value: total},
+    ...rollFields,
+    { name: "Notation", value: notationArg},
   ].filter((x) => x)
   return new EmbedBuilder()
-    .setTitle(total)
+    .setTitle(`You rolled a ${total}`)
     .setDescription(
       dicePoolDescriptions.join(", "),
     )
