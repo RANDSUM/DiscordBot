@@ -38,16 +38,16 @@ const buildEmbed = (
   const key = Object.keys(result.dicePools)[0]
   const dicePoolDescriptions = result.dicePools[key].description
 
-  const rawResults = String(result.rawResult.flat())
-  const results = String(result.result.flat())
+  const rawResults = JSON.stringify(result.rawResult.flat())
+  const results = JSON.stringify(result.result.flat())
 
   const noChanges = rawResults === results
 
   const rollFields =
     noChanges ? [
-    { name: "Rolls", value: JSON.stringify(results), inline: true },
-    ] : [{ name: "Rolls (before modifiers)", value: JSON.stringify(rawResults), inline: true },
-    { name: "Rolls (after modifiers)", value: JSON.stringify(results), inline: true },
+    { name: "Rolls", value: results, inline: true },
+    ] : [{ name: "Rolls (before modifiers)", value: rawResults, inline: true },
+    { name: "Rolls (after modifiers)", value: results, inline: true },
 
   ]
   const fields = [
