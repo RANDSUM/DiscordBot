@@ -2,7 +2,7 @@ import { EmbedBuilder } from "npm:@discordjs/builders"
 import {
   APIApplicationCommandInteraction,
 } from "https://deno.land/x/discord_api_types@0.37.73/v10.ts"
-import { roll, validateDiceNotation } from "npm:randsum"
+import { roll, validateDiceNotation } from "npm:randsum@4.3.1"
 import { embedFooterDetails } from "../../../constants.ts"
 import deferredResponse from "../../../deferredResponse.ts"
 
@@ -38,6 +38,8 @@ const buildEmbed = (
   const key = Object.keys(result.dicePools)[0]
   const dicePoolDescriptions = result.dicePools[key].description
   const fields = [
+    { name: "Rolls (before modifiers)", value: JSON.stringify(result.rawResult), inline: true },
+    { name: "Rolls (after modifiers)", value: JSON.stringify(result.result), inline: true },
     { name: "Notation", value: notationArg, inline: true },
   ].filter((x) => x)
   return new EmbedBuilder()

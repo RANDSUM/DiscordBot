@@ -2,7 +2,10 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "npm:discord.js": "npm:discord.js@14.14.1"
+      "npm:@discordjs/builders": "npm:@discordjs/builders@1.7.0",
+      "npm:@types/node": "npm:@types/node@18.16.19",
+      "npm:discord.js": "npm:discord.js@14.14.1",
+      "npm:randsum@4.3.1": "npm:randsum@4.3.1"
     },
     "npm": {
       "@discordjs/builders@1.7.0": {
@@ -133,6 +136,10 @@
       },
       "magic-bytes.js@1.10.0": {
         "integrity": "sha512-/k20Lg2q8LE5xiaaSkMXk4sfvI+9EGEykFS4b0CHHGWqDYU0bGUFSwchNOMA56D7TCs9GwVTkqe9als1/ns8UQ==",
+        "dependencies": {}
+      },
+      "randsum@4.3.1": {
+        "integrity": "sha512-xkOhv5tewvve6ru0VekaqZDo8Jw7QGFr4T2t8NwK1j5+uX+xgMZ2TNoXwWFHVMaJvuuzqEaSF4tnoXg58Ek32g==",
         "dependencies": {}
       },
       "ts-mixer@6.0.4": {
